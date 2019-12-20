@@ -12,9 +12,8 @@ namespace Design_WorkflowEngine
         }
 
         public void Remove(ITask task)
-        { 
-            var isRemoved = _tasks.Remove(task);
-            if (!isRemoved) throw new NullReferenceException("Task not in workflow");
+        {
+            if (!_tasks.Remove(task)) throw new NullReferenceException("Task not in workflow");
         }
 
         public IEnumerable<ITask> GetTasks()

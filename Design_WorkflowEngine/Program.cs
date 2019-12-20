@@ -9,13 +9,19 @@ namespace Design_WorkflowEngine
         static void Main(string[] args)
         {
             var work = new Workflow();
-            work.Add(new TaskPrintHello());
             var task = new TaskPrintGoodbye();
+            
+            work.Add(new TaskPrintHello());
             work.Add(task);
+            
             WorkflowEngine.Run(work);
+            
             work.Remove(task);
+            
             WorkflowEngine.Run(work);
-            // work.Remove(task); throws task not in workflow error.
+            
+            // throws task not in workflow error.
+            // work.Remove(task); 
         }
     }
 }
